@@ -23,12 +23,21 @@ print(f"{decimal_input} --> {binary_output}")
 # 3) შექმენით პროგრამა, რომელიც იღებს სიას და შლის დუბლიკატ ელემენტებს ორიგინალური წესრიგის შენარჩუნებისას.
 
 def remove_duplicates(input_list):
-    return list(dict.fromkeys(input_list))
+    unique_list = []  
+    for item in input_list:
+        if item not in unique_list:  
+            unique_list.append(item) 
+    return unique_list
 
 user_input = input("შეიყვანეთ ელემენტების ჩამონათვალი (ყოჲღას ',' უნდა იყოს): ")
-input_list = [x.strip() for x in user_input.split(',')]
+
+input_list = user_input.split(',')
+
+for i in range(len(input_list)):
+    input_list[i] = input_list[i].strip()
 
 output_list = remove_duplicates(input_list)
+
 print(f"{input_list} --> {output_list}")
 
 # 4)შექმენით პროგრამა, რომელიც იღებს არაუარაციულ მთელი რიცხვით 
